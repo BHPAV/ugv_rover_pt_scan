@@ -1,0 +1,20 @@
+# Goal
+float32 duration_sec
+float32 yaw_min_deg
+float32 yaw_max_deg
+float32 yaw_step_deg
+float32[] pitch_list_deg
+int32 frames_per_pose
+int32 settle_ms
+
+---
+# Result
+bool success
+string local_bundle
+string nas_bundle
+string message
+
+---
+# Feedback
+string state
+float32 progress

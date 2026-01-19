@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+
+# ROS / colcon
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Local env
+.env
+
+# Mission data
+/data/missions/

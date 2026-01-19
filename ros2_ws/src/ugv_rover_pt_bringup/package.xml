@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ugv_rover_pt_bringup</name>
+  <version>0.1.0</version>
+  <description>Bringup launch for UGV Rover PT: camera + gimbal + scan mission</description>
+  <maintainer email="you@local">BoxHead</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>v4l2_camera</exec_depend>
+  <exec_depend>ugv_rover_pt_gimbal_serial</exec_depend>
+  <exec_depend>ugv_rover_pt_scan_mission</exec_depend>
+
+</package>
