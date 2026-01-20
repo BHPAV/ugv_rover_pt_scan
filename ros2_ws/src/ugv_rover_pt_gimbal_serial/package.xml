@@ -3,7 +3,7 @@
   <name>ugv_rover_pt_gimbal_serial</name>
   <version>0.1.0</version>
   <description>Waveshare UGV Rover PT gimbal serial JSON driver (T=133)</description>
-  <maintainer email="you@local">BoxHead</maintainer>
+  <maintainer email="dev@example.com">BoxHead</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

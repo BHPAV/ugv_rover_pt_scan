@@ -3,7 +3,7 @@
   <name>ugv_rover_pt_offload</name>
   <version>0.1.0</version>
   <description>Offload helper (rsync over SSH) for UGV mission bundles</description>
-  <maintainer email="you@local">BoxHead</maintainer>
+  <maintainer email="dev@example.com">BoxHead</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

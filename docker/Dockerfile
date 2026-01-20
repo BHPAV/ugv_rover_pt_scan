@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # OpenCV python (for jpeg writes)
-RUN pip3 install --no-cache-dir opencv-python
+# Pin numpy<2 for compatibility with ROS 2 Humble cv_bridge (compiled with numpy 1.x)
+RUN pip3 install --no-cache-dir opencv-python "numpy<2"
 
 WORKDIR /work

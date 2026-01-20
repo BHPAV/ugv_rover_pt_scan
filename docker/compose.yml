@@ -3,31 +3,34 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+    container_name: ugv_ros
+    # Use host network for ROS 2 discovery and Tailscale access
     network_mode: host
-    ipc: host
-    pid: host
-    privileged: true
+    # Specific device access instead of privileged mode
+    devices:
+      - /dev/video0:/dev/video0
+      - /dev/video1:/dev/video1
+      - /dev/ttyTHS1:/dev/ttyTHS1
+      - /dev/ttyTHS2:/dev/ttyTHS2
+      - /dev/ttyACM0:/dev/ttyACM0
+    # Minimal capabilities needed for serial/video access
+    cap_add:
+      - SYS_RAWIO
+    group_add:
+      - video
+      - dialout
     environment:
-      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
-      - UGV_SERIAL_PORT=${UGV_SERIAL_PORT}
-      - UGV_SERIAL_BAUD=${UGV_SERIAL_BAUD}
-      - UGV_CAMERA_DEVICE=${UGV_CAMERA_DEVICE}
-      - UGV_CAMERA_FPS=${UGV_CAMERA_FPS}
-      - UGV_CAMERA_WIDTH=${UGV_CAMERA_WIDTH}
-      - UGV_CAMERA_HEIGHT=${UGV_CAMERA_HEIGHT}
-      - UGV_MISSION_ROOT=${UGV_MISSION_ROOT}
-      - NAS_HOST=${NAS_HOST}
-      - NAS_USER=${NAS_USER}
-      - NAS_DEST_DIR=${NAS_DEST_DIR}
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
     volumes:
       - ../ros2_ws:/work/ros2_ws:rw
-      - ${UGV_MISSION_ROOT}:${UGV_MISSION_ROOT}:rw
-      - /dev:/dev
+      - ../config/params.yaml:/work/params.yaml:ro
+      - ${UGV_MISSION_ROOT:-/data/missions}:${UGV_MISSION_ROOT:-/data/missions}:rw
+      - ~/.ssh:/root/.ssh:ro
     command: >
       bash -lc "
         cd /work/ros2_ws &&
         colcon build --symlink-install &&
         source install/setup.bash &&
-        ros2 launch ugv_rover_pt_bringup bringup.launch.py
+        ros2 launch ugv_rover_pt_bringup bringup.launch.py params_file:=/work/params.yaml
       "
     restart: unless-stopped

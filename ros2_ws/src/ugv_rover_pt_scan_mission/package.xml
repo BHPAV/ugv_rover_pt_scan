@@ -3,21 +3,18 @@
   <name>ugv_rover_pt_scan_mission</name>
   <version>0.1.0</version>
   <description>Scan surroundings with gimbal, capture frames, offload to NAS, return idle.</description>
-  <maintainer email="you@local">BoxHead</maintainer>
+  <maintainer email="dev@example.com">BoxHead</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
-  <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
+  <depend>ugv_rover_pt_interfaces</depend>
 
-  <exec_depend>rosidl_default_runtime</exec_depend>
   <exec_depend>ugv_rover_pt_offload</exec_depend>
-
-  <member_of_group>rosidl_interface_packages</member_of_group>
 
   <export>
     <build_type>ament_python</build_type>

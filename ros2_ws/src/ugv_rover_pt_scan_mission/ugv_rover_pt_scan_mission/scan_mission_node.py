@@ -4,7 +4,6 @@
 # Sweeps gimbal via /gimbal/setpoint, captures /image_raw, saves jpeg frames,
 # offloads to NAS via rsync, returns to idle.
 
-import os
 import json
 import time
 from pathlib import Path
@@ -18,7 +17,7 @@ from sensor_msgs.msg import Image
 from geometry_msgs.msg import Vector3
 from cv_bridge import CvBridge
 
-from ugv_rover_pt_scan_mission.action import ScanAndOffload
+from ugv_rover_pt_interfaces.action import ScanAndOffload
 from ugv_rover_pt_offload.offload import OffloadTarget, offload_with_markers
 
 import cv2
@@ -26,19 +25,16 @@ import cv2
 
 class ScanMission(Node):
     def __init__(self) -> None:
-        super().__init__("ugv_rover_pt_scan_mission")
+        super().__init__("scan_mission")
 
         self.bridge = CvBridge()
         self.latest: Optional[Image] = None
 
-        self.mission_root = Path(
-            self.declare_parameter("mission_root", os.getenv("UGV_MISSION_ROOT", "/data/missions")).value
-        )
-        self.nas_host = self.declare_parameter("nas_host", os.getenv("NAS_HOST", "box-nas")).value
-        self.nas_user = self.declare_parameter("nas_user", os.getenv("NAS_USER", "rover_ingest")).value
-        self.nas_dest = self.declare_parameter(
-            "nas_dest_dir", os.getenv("NAS_DEST_DIR", "/share/rover_ingest/ugv_rover_pt/box-rover/")
-        ).value
+        # All config comes from params.yaml via launch file
+        self.mission_root = Path(str(self.declare_parameter("mission_root", "/data/missions").value))
+        self.nas_host = str(self.declare_parameter("nas_host", "192.168.1.20").value)
+        self.nas_user = str(self.declare_parameter("nas_user", "boxhead").value)
+        self.nas_dest = str(self.declare_parameter("nas_dest_dir", "/share/boxhead/ugv_rover_pt/missions/").value)
 
         self.sub = self.create_subscription(Image, "/image_raw", self.on_image, 10)
         self.pub = self.create_publisher(Vector3, "/gimbal/setpoint", 10)

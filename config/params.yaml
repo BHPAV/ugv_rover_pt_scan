@@ -1,0 +1,29 @@
+# ----------------------------------------
+# UGV Rover PT - Unified Configuration
+# ----------------------------------------
+# All ROS 2 node parameters in one place.
+# Mount this file into the container and pass to launch file.
+
+# Camera node (v4l2_camera)
+camera:
+  ros__parameters:
+    video_device: "/dev/video0"
+    image_size: [1280, 720]
+    time_per_frame: [1, 30]  # 30 FPS
+    output_encoding: "rgb8"
+
+# Gimbal serial node
+gimbal_serial:
+  ros__parameters:
+    port: "/dev/ttyTHS1"
+    baud: 115200
+    spd: 200   # Gimbal speed
+    acc: 10    # Gimbal acceleration
+
+# Scan mission action server
+scan_mission:
+  ros__parameters:
+    mission_root: "/data/missions"
+    nas_host: "192.168.1.20"
+    nas_user: "boxhead"
+    nas_dest_dir: "/share/boxhead/ugv_rover_pt/missions/"

@@ -8,7 +8,6 @@
 # commands are accepted. Must send T=4 cmd=2 to select gimbal module type.
 
 import json
-import os
 import time
 from dataclasses import dataclass
 
@@ -33,14 +32,15 @@ class GimbalParams:
 
 class GimbalNode(Node):
     def __init__(self) -> None:
-        super().__init__("ugv_rover_pt_gimbal_serial")
+        super().__init__("gimbal_serial")
 
-        port = self.declare_parameter("port", os.getenv("UGV_SERIAL_PORT", "/dev/ttyTHS1")).value
-        baud = int(self.declare_parameter("baud", int(os.getenv("UGV_SERIAL_BAUD", "115200"))).value)
+        # All config comes from params.yaml via launch file
+        port = str(self.declare_parameter("port", "/dev/ttyTHS1").value)
+        baud = int(self.declare_parameter("baud", 115200).value)
         spd = int(self.declare_parameter("spd", 200).value)
         acc = int(self.declare_parameter("acc", 10).value)
 
-        self.params = GimbalParams(port=str(port), baud=int(baud), spd=int(spd), acc=int(acc))
+        self.params = GimbalParams(port=port, baud=baud, spd=spd, acc=acc)
         self.get_logger().info(f"Opening serial {self.params.port} @ {self.params.baud}")
 
         self.ser = serial.Serial(self.params.port, baudrate=self.params.baud, timeout=0.2)
