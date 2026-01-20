@@ -1,0 +1,326 @@
+{
+  "meta": {
+    "created_at_utc": "2026-01-19T20:02:24.316196+00:00",
+    "is_root": true,
+    "target": "container:ugv_ros"
+  },
+  "surfaces": {
+    "bus.i2c_devices": {
+      "data": [
+        "/dev/i2c-9",
+        "/dev/i2c-7",
+        "/dev/i2c-1",
+        "/dev/i2c-5",
+        "/dev/i2c-2",
+        "/dev/i2c-0",
+        "/dev/i2c-4"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "bus.i2c_tools": {
+      "data": null,
+      "notes": "i2c-tools not installed",
+      "status": "UNKNOWN"
+    },
+    "camera.v4l2_ctl": {
+      "data": null,
+      "notes": "v4l2-ctl not installed (optional)",
+      "status": "UNKNOWN"
+    },
+    "camera.v4l2_devices": {
+      "data": [
+        "/dev/video1",
+        "/dev/video0"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "docker.ps": {
+      "data": null,
+      "notes": "docker CLI not found",
+      "status": "UNKNOWN"
+    },
+    "io.serial_ports": {
+      "data": [
+        "/dev/ttyACM0",
+        "/dev/ttyTHS1",
+        "/dev/ttyTHS2"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "jetson.jetson_clocks": {
+      "data": null,
+      "notes": "jetson_clocks not found",
+      "status": "UNKNOWN"
+    },
+    "jetson.nvpmodel": {
+      "data": null,
+      "notes": "nvpmodel not found",
+      "status": "UNKNOWN"
+    },
+    "jetson.tegrastats": {
+      "data": null,
+      "notes": "tegrastats not found (not fatal, but useful)",
+      "status": "WARN"
+    },
+    "memory.meminfo": {
+      "data": [
+        "MemTotal:        3688824 kB",
+        "MemFree:          112540 kB",
+        "MemAvailable:    2437304 kB",
+        "Buffers:          513616 kB",
+        "Cached:          1786564 kB",
+        "SwapCached:           40 kB",
+        "Active:          1500652 kB",
+        "Inactive:        1492828 kB",
+        "Active(anon):      25624 kB",
+        "Inactive(anon):   725796 kB",
+        "Active(file):    1475028 kB",
+        "Inactive(file):   767032 kB"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "memory.psi": {
+      "data": null,
+      "notes": "psi not available",
+      "status": "UNKNOWN"
+    },
+    "net.ip_addr": {
+      "data": null,
+      "notes": "not found: ip",
+      "status": "UNKNOWN"
+    },
+    "net.route": {
+      "data": null,
+      "notes": "not found: ip",
+      "status": "UNKNOWN"
+    },
+    "net.tailscale": {
+      "data": null,
+      "notes": "tailscale CLI not found",
+      "status": "UNKNOWN"
+    },
+    "power.battery_telemetry_quality": {
+      "data": null,
+      "notes": "battery telemetry not discoverable via power_supply",
+      "status": "WARN"
+    },
+    "power.power_supply": {
+      "data": null,
+      "notes": "no /sys/class/power_supply (or inaccessible)",
+      "status": "UNKNOWN"
+    },
+    "ros2.actions": {
+      "data": [],
+      "notes": "",
+      "status": "PASS"
+    },
+    "ros2.available": {
+      "data": null,
+      "notes": "ros2 CLI found",
+      "status": "PASS"
+    },
+    "ros2.image_topic_hz": {
+      "data": null,
+      "notes": "no obvious image topics found (or ros2 topic list empty)",
+      "status": "UNKNOWN"
+    },
+    "ros2.nodes": {
+      "data": [
+        "/camera",
+        "/gimbal_serial",
+        "/scan_mission"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "ros2.params_sample": {
+      "data": {
+        "/camera": {
+          "params": [
+            "auto_exposure",
+            "backlight_compensation",
+            "brightness",
+            "camera_frame_id",
+            "camera_info_url",
+            "contrast",
+            "exposure_dynamic_framerate",
+            "exposure_time_absolute",
+            "gamma",
+            "hue",
+            "image_raw.enable_pub_plugins",
+            "image_size",
+            "output_encoding",
+            "pan_absolute",
+            "pixel_format",
+            "power_line_frequency",
+            "qos_overrides./parameter_events.publisher.depth",
+            "qos_overrides./parameter_events.publisher.durability",
+            "qos_overrides./parameter_events.publisher.history",
+            "qos_overrides./parameter_events.publisher.reliability",
+            "saturation",
+            "sharpness",
+            "tilt_absolute",
+            "use_sim_time",
+            "video_device",
+            "white_balance_automatic",
+            "white_balance_temperature",
+            "zoom_absolute"
+          ]
+        },
+        "/gimbal_serial": {
+          "params": [
+            "acc",
+            "baud",
+            "port",
+            "spd",
+            "use_sim_time"
+          ]
+        },
+        "/scan_mission": {
+          "params": [
+            "mission_root",
+            "nas_dest_dir",
+            "nas_host",
+            "nas_user",
+            "use_sim_time"
+          ]
+        }
+      },
+      "notes": "",
+      "status": "PASS"
+    },
+    "ros2.services": {
+      "data": [
+        "/gimbal_serial/describe_parameters",
+        "/gimbal_serial/get_parameter_types",
+        "/gimbal_serial/get_parameters",
+        "/gimbal_serial/list_parameters",
+        "/gimbal_serial/set_parameters",
+        "/gimbal_serial/set_parameters_atomically"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "ros2.topics": {
+      "data": [
+        "/gimbal/setpoint",
+        "/parameter_events",
+        "/rosout"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "safety.watchdog": {
+      "data": [
+        "/dev/watchdog",
+        "/dev/watchdog0"
+      ],
+      "notes": "watchdog device present",
+      "status": "PASS"
+    },
+    "storage.root_df": {
+      "data": "Filesystem      Size  Used Avail Use% Mounted on\noverlay         232G   38G  185G  17% /",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.device_model": {
+      "data": "NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\u0000",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.hostname": {
+      "data": "ubuntu",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.platform": {
+      "data": {
+        "kernel": "5.15.136-tegra",
+        "machine": "aarch64",
+        "os": "Linux-5.15.136-tegra-aarch64-with-glibc2.35",
+        "python": "3.10.12"
+      },
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.uptime_seconds": {
+      "data": 6622.35,
+      "notes": "",
+      "status": "PASS"
+    },
+    "systemd.health": {
+      "data": "offline",
+      "notes": "",
+      "status": "WARN"
+    },
+    "thermal.zones": {
+      "data": [
+        {
+          "path": "/sys/class/thermal/thermal_zone0",
+          "temp_mC": 52750,
+          "type": "cpu-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone1",
+          "temp_mC": 52375,
+          "type": "gpu-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone2",
+          "temp_mC": null,
+          "type": "cv0-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone3",
+          "temp_mC": null,
+          "type": "cv1-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone4",
+          "temp_mC": null,
+          "type": "cv2-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone5",
+          "temp_mC": 51656,
+          "type": "soc0-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone6",
+          "temp_mC": 53406,
+          "type": "soc1-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone7",
+          "temp_mC": 50937,
+          "type": "soc2-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone8",
+          "temp_mC": 53500,
+          "type": "tj-thermal"
+        }
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "time.rtc": {
+      "data": [
+        "/dev/rtc",
+        "/dev/rtc0",
+        "/dev/rtc1"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "time.sync": {
+      "data": "System has not been booted with systemd as init system (PID 1). Can't operate.\nFailed to connect to bus: Host is down",
+      "notes": "",
+      "status": "UNKNOWN"
+    }
+  }
+}

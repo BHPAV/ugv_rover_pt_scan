@@ -3,6 +3,9 @@
 # ----------------------------------------
 # Subscribes to /gimbal/setpoint (geometry_msgs/Vector3: x=yaw_deg, y=pitch_deg)
 # Sends JSON {"T":133,"X":yaw,"Y":pitch,"SPD":spd,"ACC":acc} over UART.
+#
+# IMPORTANT: Waveshare ESP32 requires initialization sequence before gimbal
+# commands are accepted. Must send T=4 cmd=2 to select gimbal module type.
 
 import json
 import os
@@ -34,8 +37,8 @@ class GimbalNode(Node):
 
         port = self.declare_parameter("port", os.getenv("UGV_SERIAL_PORT", "/dev/ttyTHS1")).value
         baud = int(self.declare_parameter("baud", int(os.getenv("UGV_SERIAL_BAUD", "115200"))).value)
-        spd = int(self.declare_parameter("spd", 0).value)
-        acc = int(self.declare_parameter("acc", 0).value)
+        spd = int(self.declare_parameter("spd", 200).value)
+        acc = int(self.declare_parameter("acc", 10).value)
 
         self.params = GimbalParams(port=str(port), baud=int(baud), spd=int(spd), acc=int(acc))
         self.get_logger().info(f"Opening serial {self.params.port} @ {self.params.baud}")
@@ -43,8 +46,39 @@ class GimbalNode(Node):
         self.ser = serial.Serial(self.params.port, baudrate=self.params.baud, timeout=0.2)
         self.sub = self.create_subscription(Vector3, "/gimbal/setpoint", self.on_setpoint, 10)
 
+        # Initialize ESP32 for gimbal mode (required before gimbal commands work)
+        self._initialize_gimbal()
+
         # Center on start
         self.send_pose(0.0, 0.0)
+
+    def _send_json(self, payload: dict) -> None:
+        """Send JSON command with newline terminator (Waveshare protocol)."""
+        msg = (json.dumps(payload) + '\n').encode("utf-8")
+        self.ser.write(msg)
+        self.ser.flush()
+
+    def _initialize_gimbal(self) -> None:
+        """Send initialization sequence to enable gimbal mode on ESP32."""
+        self.get_logger().info("Initializing ESP32 gimbal mode...")
+
+        # Set feedback interval
+        self._send_json({"T": 142, "cmd": 50})
+        time.sleep(0.1)
+
+        # Enable serial feedback flow
+        self._send_json({"T": 131, "cmd": 1})
+        time.sleep(0.1)
+
+        # Disable serial echo
+        self._send_json({"T": 143, "cmd": 0})
+        time.sleep(0.1)
+
+        # SELECT MODULE TYPE: 0=None, 1=RoArm-M2-S, 2=Gimbal
+        self._send_json({"T": 4, "cmd": 2})
+        time.sleep(0.5)
+
+        self.get_logger().info("ESP32 gimbal initialization complete")
 
     def send_pose(self, yaw_deg: float, pitch_deg: float) -> None:
         payload = {
@@ -54,8 +88,7 @@ class GimbalNode(Node):
             "SPD": int(self.params.spd),
             "ACC": int(self.params.acc),
         }
-        msg = json.dumps(payload).encode("utf-8")
-        self.ser.write(msg)
+        self._send_json(payload)
 
     def on_setpoint(self, msg: Vector3) -> None:
         self.send_pose(msg.x, msg.y)

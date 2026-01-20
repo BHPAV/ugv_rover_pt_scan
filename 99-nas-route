@@ -1,0 +1,14 @@
+#!/bin/bash
+# Add direct route to NAS to avoid Tailscale subnet routing conflict
+# This ensures rsync/SSH to NAS goes via local network, not Tailscale
+
+INTERFACE=$1
+STATUS=$2
+
+if [ "$INTERFACE" = "eth0" ] && [ "$STATUS" = "up" ]; then
+    # Check if route already exists
+    if ! ip route show 192.168.1.20/32 dev eth0 2>/dev/null | grep -q "192.168.1.20"; then
+        ip route add 192.168.1.20/32 dev eth0
+        logger "Added direct route to NAS (192.168.1.20) via eth0"
+    fi
+fi

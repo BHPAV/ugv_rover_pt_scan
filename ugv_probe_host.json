@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "created_at_utc": "2026-01-19T20:02:04.314127+00:00",
+    "is_root": false,
+    "target": "jetson-host"
+  },
+  "surfaces": {
+    "bus.i2c_devices": {
+      "data": [
+        "/dev/i2c-9",
+        "/dev/i2c-7",
+        "/dev/i2c-1",
+        "/dev/i2c-5",
+        "/dev/i2c-2",
+        "/dev/i2c-0",
+        "/dev/i2c-4"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "bus.i2c_tools": {
+      "data": null,
+      "notes": "found at /usr/sbin/i2cdetect",
+      "status": "PASS"
+    },
+    "camera.v4l2_ctl": {
+      "data": null,
+      "notes": "v4l2-ctl not installed (optional)",
+      "status": "UNKNOWN"
+    },
+    "camera.v4l2_devices": {
+      "data": [
+        "/dev/video1",
+        "/dev/video0"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "docker.ps": {
+      "data": [
+        "ugv_ros\tUp 19 minutes",
+        "ugv_jetson_ros_humble\tUp 2 hours"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "io.serial_ports": {
+      "data": [
+        "/dev/ttyACM0",
+        "/dev/ttyTHS1",
+        "/dev/ttyTHS2"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "jetson.jetson_clocks": {
+      "data": null,
+      "notes": "found at /usr/bin/jetson_clocks",
+      "status": "PASS"
+    },
+    "jetson.nvpmodel": {
+      "data": null,
+      "notes": "found at /usr/sbin/nvpmodel",
+      "status": "PASS"
+    },
+    "jetson.tegrastats": {
+      "data": null,
+      "notes": "found at /usr/bin/tegrastats",
+      "status": "PASS"
+    },
+    "memory.meminfo": {
+      "data": [
+        "MemTotal:        3688824 kB",
+        "MemFree:          139268 kB",
+        "MemAvailable:    2460800 kB",
+        "Buffers:          513580 kB",
+        "Cached:          1783232 kB",
+        "SwapCached:           40 kB",
+        "Active:          1492884 kB",
+        "Inactive:        1479892 kB",
+        "Active(anon):      25592 kB",
+        "Inactive(anon):   708304 kB",
+        "Active(file):    1467292 kB",
+        "Inactive(file):   771588 kB"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "memory.psi": {
+      "data": null,
+      "notes": "psi not available",
+      "status": "UNKNOWN"
+    },
+    "net.ip_addr": {
+      "data": [
+        "1: lo    inet 127.0.0.1/8 scope host lo\\       valid_lft forever preferred_lft forever",
+        "1: lo    inet6 ::1/128 scope host \\       valid_lft forever preferred_lft forever",
+        "5: tailscale0    inet 100.88.142.110/32 scope global tailscale0\\       valid_lft forever preferred_lft forever",
+        "5: tailscale0    inet6 fe80::3f71:b343:fdab:f869/64 scope link stable-privacy \\       valid_lft forever preferred_lft forever",
+        "6: wlan0    inet 192.168.1.50/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0\\       valid_lft 79843sec preferred_lft 79843sec",
+        "6: wlan0    inet6 fd8c:b77d:116e:4df5:c786:d9c6:b5e4:1fbf/64 scope global temporary dynamic \\       valid_lft 1763sec preferred_lft 1763sec",
+        "6: wlan0    inet6 fd8c:b77d:116e:4df5:162a:ab0a:88dc:be77/64 scope global dynamic mngtmpaddr noprefixroute \\       valid_lft 1763sec preferred_lft 1763sec",
+        "6: wlan0    inet6 fe80::9370:d72b:cd61:515f/64 scope link noprefixroute \\       valid_lft forever preferred_lft forever",
+        "8: eth0    inet 192.168.1.44/24 brd 192.168.1.255 scope global dynamic noprefixroute eth0\\       valid_lft 79820sec preferred_lft 79820sec",
+        "8: eth0    inet6 fd8c:b77d:116e:4df5:d46c:1ebd:2f8d:764f/64 scope global temporary dynamic \\       valid_lft 1763sec preferred_lft 1763sec",
+        "8: eth0    inet6 fd8c:b77d:116e:4df5:ffea:c3e9:e797:998b/64 scope global dynamic mngtmpaddr noprefixroute \\       valid_lft 1763sec preferred_lft 1763sec",
+        "8: eth0    inet6 fe80::ec8a:95f1:21b8:2a72/64 scope link noprefixroute \\       valid_lft forever preferred_lft forever",
+        "9: docker0    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0\\       valid_lft forever preferred_lft forever"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "net.route": {
+      "data": [
+        "default via 192.168.1.1 dev eth0 proto dhcp metric 100 ",
+        "default via 192.168.1.1 dev wlan0 proto dhcp metric 600 ",
+        "100.74.45.35 dev tailscale0 ",
+        "100.86.19.97 dev tailscale0 ",
+        "100.92.224.56 dev tailscale0 ",
+        "100.92.230.110 dev tailscale0 ",
+        "100.96.68.100 dev tailscale0 ",
+        "100.96.222.125 dev tailscale0 ",
+        "100.98.133.117 dev tailscale0 ",
+        "100.100.100.100 dev tailscale0 ",
+        "100.101.230.21 dev tailscale0 ",
+        "100.110.211.46 dev tailscale0 ",
+        "100.120.211.28 dev tailscale0 ",
+        "100.123.44.103 dev tailscale0 ",
+        "100.123.158.42 dev tailscale0 ",
+        "169.254.0.0/16 dev docker0 scope link metric 1000 linkdown ",
+        "172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown ",
+        "192.168.1.0/24 dev tailscale0 ",
+        "192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.44 metric 100 ",
+        "192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.50 metric 600"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "net.tailscale": {
+      "data": "{\n  \"Version\": \"1.92.5-t1c215f6e5-g9b792287b\",\n  \"TUN\": true,\n  \"BackendState\": \"Running\",\n  \"HaveNodeKey\": true,\n  \"AuthURL\": \"\",\n  \"TailscaleIPs\": [\n    \"100.88.142.110\",\n    \"fd7a:115c:a1e0::3001:8e90\"\n  ],\n  \"Self\": {\n    \"ID\": \"nTtJBotBHA21CNTRL\",\n    \"PublicKey\": \"nodekey:871533f31244e3c9b3edf9f3e2c613401391956a4634e14a1ff058b730988e6d\",\n    \"HostName\": \"ubuntu\",\n    \"DNSName\": \"ubuntu.pigeon-featherback.ts.net.\",\n    \"OS\": \"linux\",\n    \"UserID\": 5292428856739880,\n    \"TailscaleIPs\": [\n      \"100.88.142.110\",\n      \"fd7a:115c:a1e0::3001:8e90\"\n    ],\n    \"AllowedIPs\": [\n      \"100.88.142.110/32\",\n      \"fd7a:115c:a1e0::3001:8e90/128\"\n    ],\n    \"Addrs\": [\n      \"117.53.134.80:2669\",\n      \"172.17.0.1:41641\",\n      \"192.168.1.44:41641\",\n      \"192.168.1.50:41641\"\n    ],\n    \"CurAddr\": \"\",\n    \"Relay\": \"syd\",\n    \"PeerRelay\": \"\",\n    \"RxBytes\": 0,\n    \"TxBytes\": 0,\n    \"Created\": \"2026-01-19T16:59:23.45451464Z\",\n    \"LastWrite\": \"0001-01-01T00:00:00Z\",\n    \"LastSeen\": \"0001-01-01T00:00:00Z\",\n    \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n    \"Online\": true,\n    \"ExitNode\": false,\n    \"ExitNodeOption\": false,\n    \"Active\": false,\n    \"PeerAPIURL\": [\n      \"http://100.88.142.110:57216\",\n      \"http://[fd7a:115c:a1e0::3001:8e90]:1\"\n    ],\n    \"TaildropTarget\": 0,\n    \"NoFileSharingReason\": \"\",\n    \"Capabilities\": [\n      \"HTTPS://TAILSCALE.COM/s/DEPRECATED-NODE-CAPS#see-https://github.com/tailscale/tailscale/issues/11508\",\n      \"funnel\",\n      \"https\",\n      \"https://tailscale.com/cap/file-sharing\",\n      \"https://tailscale.com/cap/funnel-ports?ports=443,8443,10000\",\n      \"https://tailscale.com/cap/is-admin\",\n      \"https://tailscale.com/cap/is-owner\",\n      \"https://tailscale.com/cap/mac-ui-v2\",\n      \"https://tailscale.com/cap/ssh\",\n      \"https://tailscale.com/cap/tailnet-lock\",\n      \"probe-udp-lifetime\",\n      \"ssh-behavior-v1\",\n      \"ssh-env-vars\",\n      \"store-appc-routes\",\n      \"tailnet-display-name\"\n    ],\n    \"CapMap\": {\n      \"funnel\": null,\n      \"https\": null,\n      \"https://tailscale.com/cap/file-sharing\": null,\n      \"https://tailscale.com/cap/funnel-ports?ports=443,8443,10000\": null,\n      \"https://tailscale.com/cap/is-admin\": null,\n      \"https://tailscale.com/cap/is-owner\": null,\n      \"https://tailscale.com/cap/mac-ui-v2\": null,\n      \"https://tailscale.com/cap/ssh\": null,\n      \"https://tailscale.com/cap/tailnet-lock\": null,\n      \"probe-udp-lifetime\": null,\n      \"ssh-behavior-v1\": null,\n      \"ssh-env-vars\": null,\n      \"store-appc-routes\": null,\n      \"tailnet-display-name\": [\n        \"box-net\"\n      ]\n    },\n    \"InNetworkMap\": true,\n    \"InMagicSock\": false,\n    \"InEngine\": false,\n    \"KeyExpiry\": \"2026-07-18T16:59:23Z\"\n  },\n  \"Health\": [\n    \"Tailscale can't reach the configured DNS servers. Internet connectivity may be affected.\"\n  ],\n  \"MagicDNSSuffix\": \"pigeon-featherback.ts.net\",\n  \"CurrentTailnet\": {\n    \"Name\": \"bhpav.github\",\n    \"MagicDNSSuffix\": \"pigeon-featherback.ts.net\",\n    \"MagicDNSEnabled\": true\n  },\n  \"CertDomains\": [\n    \"ubuntu.pigeon-featherback.ts.net\"\n  ],\n  \"Peer\": {\n    \"nodekey:14f11859e69c217ad6daece1c13cbcefb4dc9dce0b3ca19f1c9619b385e04463\": {\n      \"ID\": \"nDhfL73X2p11CNTRL\",\n      \"PublicKey\": \"nodekey:14f11859e69c217ad6daece1c13cbcefb4dc9dce0b3ca19f1c9619b385e04463\",\n      \"HostName\": \"Sholto\u2019s MacBook Air\",\n      \"DNSName\": \"sholtos-macbook-air.pigeon-featherback.ts.net.\",\n      \"OS\": \"macOS\",\n      \"UserID\": 3129975268007084,\n      \"TailscaleIPs\": [\n        \"100.96.68.100\",\n        \"fd7a:115c:a1e0::8501:4489\"\n      ],\n      \"AllowedIPs\": [\n        \"100.96.68.100/32\",\n        \"fd7a:115c:a1e0::8501:4489/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"tok\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-12-08T00:43:43.116014454Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"2026-01-19T19:50:00.1Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": false,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.96.68.100:48498\",\n        \"http://[fd7a:115c:a1e0::8501:4489]:33440\"\n      ],\n      \"TaildropTarget\": 5,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-06-06T00:43:43Z\"\n    },\n    \"nodekey:21e820ad28bf9c9c493aa244aae138782f7c76b6cc731897cba0ac8c0d5ce037\": {\n      \"ID\": \"nr5KfQyjzT11CNTRL\",\n      \"PublicKey\": \"nodekey:21e820ad28bf9c9c493aa244aae138782f7c76b6cc731897cba0ac8c0d5ce037\",\n      \"HostName\": \"localhost\",\n      \"DNSName\": \"trent-tv.pigeon-featherback.ts.net.\",\n      \"OS\": \"android\",\n      \"UserID\": 4864703935362941,\n      \"TailscaleIPs\": [\n        \"100.92.224.56\",\n        \"fd7a:115c:a1e0::d01:e09a\"\n      ],\n      \"AllowedIPs\": [\n        \"100.92.224.56/32\",\n        \"fd7a:115c:a1e0::d01:e09a/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2026-01-17T06:24:34.40629522Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"2026-01-17T06:51:56.1Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": false,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.92.224.56:1\",\n        \"http://[fd7a:115c:a1e0::d01:e09a]:1\"\n      ],\n      \"TaildropTarget\": 5,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-07-16T06:24:34Z\"\n    },\n    \"nodekey:4c421dae29102c618cf83d25de066a842e2d40fd6ce9267a8797e55c93628574\": {\n      \"ID\": \"nUhq1nrzCL11CNTRL\",\n      \"PublicKey\": \"nodekey:4c421dae29102c618cf83d25de066a842e2d40fd6ce9267a8797e55c93628574\",\n      \"HostName\": \"BOX-REX\",\n      \"DNSName\": \"box-rex.pigeon-featherback.ts.net.\",\n      \"OS\": \"windows\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.98.133.117\",\n        \"fd7a:115c:a1e0::9301:8577\"\n      ],\n      \"AllowedIPs\": [\n        \"100.98.133.117/32\",\n        \"fd7a:115c:a1e0::9301:8577/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-07-29T16:01:34.084448582Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.98.133.117:45025\",\n        \"http://[fd7a:115c:a1e0::9301:8577]:48052\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-01-25T16:01:34Z\"\n    },\n    \"nodekey:4fa0d07b76cc225bddd34be58f1260410f6c2a8acadcb08ad59c0c31f13b2c66\": {\n      \"ID\": \"n1g8SVYdth11CNTRL\",\n      \"PublicKey\": \"nodekey:4fa0d07b76cc225bddd34be58f1260410f6c2a8acadcb08ad59c0c31f13b2c66\",\n      \"HostName\": \"localhost\",\n      \"DNSName\": \"trent-phone.pigeon-featherback.ts.net.\",\n      \"OS\": \"iOS\",\n      \"UserID\": 4864703935362941,\n      \"TailscaleIPs\": [\n        \"100.123.44.103\",\n        \"fd7a:115c:a1e0::f101:2c90\"\n      ],\n      \"AllowedIPs\": [\n        \"100.123.44.103/32\",\n        \"fd7a:115c:a1e0::f101:2c90/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2026-01-17T04:50:35.558287345Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.123.44.103:49654\",\n        \"http://[fd7a:115c:a1e0::f101:2c90]:52175\"\n      ],\n      \"TaildropTarget\": 9,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-07-16T04:50:35Z\"\n    },\n    \"nodekey:9f1a733dcdbd5ce7ea669c3a2f4ca9be008ad58b0065b67cb77e60679fe0de7c\": {\n      \"ID\": \"nkD1p2uM9C21CNTRL\",\n      \"PublicKey\": \"nodekey:9f1a733dcdbd5ce7ea669c3a2f4ca9be008ad58b0065b67cb77e60679fe0de7c\",\n      \"HostName\": \"box-pi\",\n      \"DNSName\": \"box-pi.pigeon-featherback.ts.net.\",\n      \"OS\": \"linux\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.96.222.125\",\n        \"fd7a:115c:a1e0::9f01:de8e\"\n      ],\n      \"AllowedIPs\": [\n        \"100.96.222.125/32\",\n        \"fd7a:115c:a1e0::9f01:de8e/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-12-17T16:22:10.476227897Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.96.222.125:63266\",\n        \"http://[fd7a:115c:a1e0::9f01:de8e]:62867\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-06-15T16:22:10Z\"\n    },\n    \"nodekey:ae04fb6ff0720b50613841a831e5840aa7b4e2d509f9eab792cbb2c33d9ce66d\": {\n      \"ID\": \"nwTUZgPXN621CNTRL\",\n      \"PublicKey\": \"nodekey:ae04fb6ff0720b50613841a831e5840aa7b4e2d509f9eab792cbb2c33d9ce66d\",\n      \"HostName\": \"localhost\",\n      \"DNSName\": \"box-vision.pigeon-featherback.ts.net.\",\n      \"OS\": \"iOS\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.92.230.110\",\n        \"fd7a:115c:a1e0::3d01:e68c\"\n      ],\n      \"AllowedIPs\": [\n        \"100.92.230.110/32\",\n        \"fd7a:115c:a1e0::3d01:e68c/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2026-01-17T07:06:14.36145152Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"2026-01-19T00:10:33.1Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": false,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.92.230.110:38643\",\n        \"http://[fd7a:115c:a1e0::3d01:e68c]:43076\"\n      ],\n      \"TaildropTarget\": 5,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-07-16T07:06:14Z\"\n    },\n    \"nodekey:c0f8ad1b36f5a4c6736519a9f3b90e2003b3f68d31af35593bceb0b938961360\": {\n      \"ID\": \"n93AawEPNy11CNTRL\",\n      \"PublicKey\": \"nodekey:c0f8ad1b36f5a4c6736519a9f3b90e2003b3f68d31af35593bceb0b938961360\",\n      \"HostName\": \"localhost\",\n      \"DNSName\": \"box-pad.pigeon-featherback.ts.net.\",\n      \"OS\": \"iOS\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.86.19.97\",\n        \"fd7a:115c:a1e0::3801:1398\"\n      ],\n      \"AllowedIPs\": [\n        \"100.86.19.97/32\",\n        \"fd7a:115c:a1e0::3801:1398/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2026-01-11T06:23:16.543150326Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.86.19.97:39756\",\n        \"http://[fd7a:115c:a1e0::3801:1398]:59841\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-07-10T06:23:16Z\"\n    },\n    \"nodekey:c4e61d69e849a6a83939e878108cae9a80a4571e7233f65feae34f5ca6fb9e29\": {\n      \"ID\": \"n6U2ZcmrMB11CNTRL\",\n      \"PublicKey\": \"nodekey:c4e61d69e849a6a83939e878108cae9a80a4571e7233f65feae34f5ca6fb9e29\",\n      \"HostName\": \"BOX-MAC\",\n      \"DNSName\": \"box-mac.pigeon-featherback.ts.net.\",\n      \"OS\": \"macOS\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.123.158.42\",\n        \"fd7a:115c:a1e0::a601:9e2a\"\n      ],\n      \"AllowedIPs\": [\n        \"100.123.158.42/32\",\n        \"fd7a:115c:a1e0::a601:9e2a/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 884236,\n      \"TxBytes\": 1021764,\n      \"Created\": \"2025-12-09T13:47:10.906912617Z\",\n      \"LastWrite\": \"2026-01-20T04:01:29.030159568+08:00\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"2026-01-20T04:01:50.755623316+08:00\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": true,\n      \"PeerAPIURL\": [\n        \"http://100.123.158.42:45281\",\n        \"http://[fd7a:115c:a1e0::a601:9e2a]:56679\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": true,\n      \"KeyExpiry\": \"2026-06-07T13:47:10Z\"\n    },\n    \"nodekey:c5639977db000a4e8da91ec1ed55a2febb71aeb2c67af203c970669a72eed32d\": {\n      \"ID\": \"nR7xAPgt9h11CNTRL\",\n      \"PublicKey\": \"nodekey:c5639977db000a4e8da91ec1ed55a2febb71aeb2c67af203c970669a72eed32d\",\n      \"HostName\": \"SholtosPC\",\n      \"DNSName\": \"sholtospc.pigeon-featherback.ts.net.\",\n      \"OS\": \"windows\",\n      \"UserID\": 3129975268007084,\n      \"TailscaleIPs\": [\n        \"100.110.211.46\",\n        \"fd7a:115c:a1e0::7201:d343\"\n      ],\n      \"AllowedIPs\": [\n        \"100.110.211.46/32\",\n        \"fd7a:115c:a1e0::7201:d343/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-10-30T01:39:54.935933587Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"2026-01-10T12:15:51.1Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": false,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.110.211.46:42027\",\n        \"http://[fd7a:115c:a1e0::7201:d343]:46547\"\n      ],\n      \"TaildropTarget\": 5,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-04-28T01:39:54Z\"\n    },\n    \"nodekey:f0abba7ebf717bafbc2e98db64a05242d5f667759893f0c7d6b9fc190565e614\": {\n      \"ID\": \"nNKHSw8N3u11CNTRL\",\n      \"PublicKey\": \"nodekey:f0abba7ebf717bafbc2e98db64a05242d5f667759893f0c7d6b9fc190565e614\",\n      \"HostName\": \"localhost\",\n      \"DNSName\": \"box-phone.pigeon-featherback.ts.net.\",\n      \"OS\": \"iOS\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.101.230.21\",\n        \"fd7a:115c:a1e0::501:e618\"\n      ],\n      \"AllowedIPs\": [\n        \"100.101.230.21/32\",\n        \"fd7a:115c:a1e0::501:e618/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-11-08T04:05:32.295674319Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.101.230.21:57432\",\n        \"http://[fd7a:115c:a1e0::501:e618]:65305\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false,\n      \"KeyExpiry\": \"2026-05-07T04:05:32Z\"\n    },\n    \"nodekey:f58aab79d1a834f9e566fe97a15e7ea2a822274e97b1749722d532c19dbe3a3f\": {\n      \"ID\": \"na8s6Vthae11CNTRL\",\n      \"PublicKey\": \"nodekey:f58aab79d1a834f9e566fe97a15e7ea2a822274e97b1749722d532c19dbe3a3f\",\n      \"HostName\": \"terramaster-nas\",\n      \"DNSName\": \"box-nas.pigeon-featherback.ts.net.\",\n      \"OS\": \"linux\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.74.45.35\",\n        \"fd7a:115c:a1e0::b601:2d3b\"\n      ],\n      \"AllowedIPs\": [\n        \"100.74.45.35/32\",\n        \"fd7a:115c:a1e0::b601:2d3b/128\",\n        \"192.168.1.0/24\"\n      ],\n      \"PrimaryRoutes\": [\n        \"192.168.1.0/24\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 1797268,\n      \"TxBytes\": 499172,\n      \"Created\": \"2025-12-08T16:21:13.83360294Z\",\n      \"LastWrite\": \"2026-01-20T04:01:19.156161852+08:00\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"2026-01-20T04:00:14.253586468+08:00\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": true,\n      \"PeerAPIURL\": [\n        \"http://100.74.45.35:64153\",\n        \"http://[fd7a:115c:a1e0::b601:2d3b]:1\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": true,\n      \"KeyExpiry\": \"2026-06-25T12:57:17Z\"\n    },\n    \"nodekey:fc34baff328d86f5f64f8c82139bd84b2ea0470e07390fc966d22b875db8d31b\": {\n      \"ID\": \"ndQDcmrqtZ11CNTRL\",\n      \"PublicKey\": \"nodekey:fc34baff328d86f5f64f8c82139bd84b2ea0470e07390fc966d22b875db8d31b\",\n      \"HostName\": \"Box-Rig\",\n      \"DNSName\": \"box-rig.pigeon-featherback.ts.net.\",\n      \"OS\": \"windows\",\n      \"UserID\": 5292428856739880,\n      \"TailscaleIPs\": [\n        \"100.120.211.28\",\n        \"fd7a:115c:a1e0::5d01:d31f\"\n      ],\n      \"AllowedIPs\": [\n        \"100.120.211.28/32\",\n        \"fd7a:115c:a1e0::5d01:d31f/128\"\n      ],\n      \"Addrs\": null,\n      \"CurAddr\": \"\",\n      \"Relay\": \"syd\",\n      \"PeerRelay\": \"\",\n      \"RxBytes\": 0,\n      \"TxBytes\": 0,\n      \"Created\": \"2025-06-06T17:42:49.348099703Z\",\n      \"LastWrite\": \"0001-01-01T00:00:00Z\",\n      \"LastSeen\": \"0001-01-01T00:00:00Z\",\n      \"LastHandshake\": \"0001-01-01T00:00:00Z\",\n      \"Online\": true,\n      \"ExitNode\": false,\n      \"ExitNodeOption\": false,\n      \"Active\": false,\n      \"PeerAPIURL\": [\n        \"http://100.120.211.28:43625\",\n        \"http://[fd7a:115c:a1e0::5d01:d31f]:43020\"\n      ],\n      \"TaildropTarget\": 1,\n      \"NoFileSharingReason\": \"\",\n      \"CapMap\": {\n        \"suggest-exit-node\": null\n      },\n      \"InNetworkMap\": true,\n      \"InMagicSock\": true,\n      \"InEngine\": false\n    }\n  },\n  \"User\": {\n    \"3129975268007084\": {\n      \"ID\": 3129975268007084,\n      \"LoginName\": \"sholto@nodenarrative.com.au\",\n      \"DisplayName\": \"Sholto McNeilage\",\n      \"ProfilePicURL\": \"https://lh3.googleusercontent.com/a-/ALV-UjW7Qo30XUrg9rFXjMDviqkUSRi5eXQnHJJkp6NOasQPlOA1-VbW-NiI5t4z-BsiLV428xZCPNBRrE6hHE4Y_FdPbZF8xBMlrX3wAKty9ZYgnZykuCMnWg0Swa-Wv9Hgwg4JdmS1Ut7jcWLJSOwhk6wwSNNDjkY34uX-U5ByfcGh-OuBz4oVkGrk5nrPTgQAsYtLDuiAQm_jQtP6oEZYhnphVvY1lxllH-zFKiYjckXTJyAXun8XArL3WCeABRe1gOycYhm1T_N1cDMhIBv4NRmRDPRuzFTN-8rKgKfJb-8ZteX_JupZeAmFfL3j4x3o393yHtbDmzfSJ3GhYfRAW9HAPSZxuNtSYWfTFPQ7vCuo16RyLmbU3p9MbHv5JJc_BfF-LdTsGq6v4gGMIPVGGe7bC9BGPd56uw08_1IqS7Pw8hKxA_5ymkNZMGmkDhzgpqELQn5rrV4MP2-nj515z5NjSypqu6UEoXUOUXAEXxChERl8BG-9Yyhzq5g5TNA18mtB_I44y1JXd4_9urMOMjtpERIH6lXWv6s_beROsh3irl7v1toJuoalNjqgAMLaFT43A8bAPJpvvJFFAf1c70gjYqMjxaxl7wR1LCVUyRf2QPVArs0gYMydRghQ6B9Ws1ZxSyhjvcL5BxJ_x6foBsPbA4mf3Zl3eJIGLWwCvyhOSR57_sWSkHdnyw97hMBvGlC_cHf1gJAB0xPEn1o0pJn274GXmOgBxHlPMgrsAnvjCodT3Qka-XA2j-GkBAkH6oJBXq5H2xXlJgdlrmSZeaVaE-_tJSLbzUSIBDSPdN5hWrUDd86x576DanvygeMHK0IX60OuxR8GKUzDCmEZFBRzpgP9G-ilbKjIysfxIT-MDGEkPJmjJ4HTLRJFItHedoOKuzhVpoVotcvBN3LBpoe5zJzC5YsPsyRyjxUJPLdFrG807r3yM1sgmd2kag_68JbjSmWW6q_dfYVs8nywN_kDS6mH5ojWDGpEoyqRZ1qrgPkWnwfoMTC0XvItfYo-pIF5KL9X0vMKhqXdQDphdZyob-8HN_FWqLmDzN8siAf3JLx8HjnT=s96-c\"\n    },\n    \"4864703935362941\": {\n      \"ID\": 4864703935362941,\n      \"LoginName\": \"djcutloose@icloud.com\",\n      \"DisplayName\": \"djcutloose\"\n    },\n    \"5292428856739880\": {\n      \"ID\": 5292428856739880,\n      \"LoginName\": \"BHPAV@github\",\n      \"DisplayName\": \"BHPAV\",\n      \"ProfilePicURL\": \"https://avatars.githubusercontent.com/u/120694498?v=4\"\n    }\n  },\n  \"ClientVersion\": null\n}",
+      "notes": "",
+      "status": "PASS"
+    },
+    "power.battery_telemetry_quality": {
+      "data": null,
+      "notes": "battery telemetry not discoverable via power_supply",
+      "status": "WARN"
+    },
+    "power.power_supply": {
+      "data": null,
+      "notes": "no /sys/class/power_supply (or inaccessible)",
+      "status": "UNKNOWN"
+    },
+    "ros2.available": {
+      "data": null,
+      "notes": "ros2 CLI not found in PATH (source ROS setup or run inside container)",
+      "status": "FAIL"
+    },
+    "safety.watchdog": {
+      "data": [
+        "/dev/watchdog",
+        "/dev/watchdog0"
+      ],
+      "notes": "watchdog device present",
+      "status": "PASS"
+    },
+    "storage.root_df": {
+      "data": "Filesystem       Size  Used Avail Use% Mounted on\n/dev/nvme0n1p15  232G   38G  185G  17% /",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.device_model": {
+      "data": "NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\u0000",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.hostname": {
+      "data": "ubuntu",
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.platform": {
+      "data": {
+        "kernel": "5.15.136-tegra",
+        "machine": "aarch64",
+        "os": "Linux-5.15.136-tegra-aarch64-with-glibc2.35",
+        "python": "3.10.12"
+      },
+      "notes": "",
+      "status": "PASS"
+    },
+    "system.uptime_seconds": {
+      "data": 6602.34,
+      "notes": "",
+      "status": "PASS"
+    },
+    "systemd.health": {
+      "data": "degraded",
+      "notes": "",
+      "status": "WARN"
+    },
+    "thermal.zones": {
+      "data": [
+        {
+          "path": "/sys/class/thermal/thermal_zone0",
+          "temp_mC": 53250,
+          "type": "cpu-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone1",
+          "temp_mC": 52437,
+          "type": "gpu-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone2",
+          "temp_mC": null,
+          "type": "cv0-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone3",
+          "temp_mC": null,
+          "type": "cv1-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone4",
+          "temp_mC": null,
+          "type": "cv2-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone5",
+          "temp_mC": 51656,
+          "type": "soc0-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone6",
+          "temp_mC": 53531,
+          "type": "soc1-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone7",
+          "temp_mC": 50875,
+          "type": "soc2-thermal"
+        },
+        {
+          "path": "/sys/class/thermal/thermal_zone8",
+          "temp_mC": 53531,
+          "type": "tj-thermal"
+        }
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "time.rtc": {
+      "data": [
+        "/dev/rtc",
+        "/dev/rtc0",
+        "/dev/rtc1"
+      ],
+      "notes": "",
+      "status": "PASS"
+    },
+    "time.sync": {
+      "data": "Timezone=Asia/Shanghai\nNTPSynchronized=yes\nTimeUSec=Tue 2026-01-20 04:02:04 CST",
+      "notes": "",
+      "status": "PASS"
+    }
+  }
+}
