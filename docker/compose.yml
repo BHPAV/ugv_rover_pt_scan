@@ -24,6 +24,7 @@ services:
     volumes:
       - ../ros2_ws:/work/ros2_ws:rw
       - ../config/params.yaml:/work/params.yaml:ro
+      - ../scripts:/work/scripts:ro
       - ${UGV_MISSION_ROOT:-/data/missions}:${UGV_MISSION_ROOT:-/data/missions}:rw
       - ~/.ssh:/root/.ssh:ro
     command: >
