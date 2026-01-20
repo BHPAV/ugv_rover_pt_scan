@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-serial rsync openssh-client \
     ros-humble-cv-bridge ros-humble-image-transport \
     ros-humble-v4l2-camera ros-humble-diagnostic-msgs \
+    ros-humble-rosbridge-server \
     && rm -rf /var/lib/apt/lists/*
 
 # OpenCV python (for jpeg writes)

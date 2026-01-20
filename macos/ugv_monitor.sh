@@ -8,6 +8,10 @@
 # Install as launchd agent:
 #   ./macos/install_monitor.sh
 #
+# TUI Modes:
+#   UGV_TUI_MODE=local   Use local Bun+Ink TUI (connects via rosbridge)
+#   UGV_TUI_MODE=remote  Use remote Python TUI (connects via SSH)
+#
 
 set -e
 
@@ -18,6 +22,12 @@ CHECK_INTERVAL=10               # Seconds between checks when offline
 BOOT_WAIT=30                    # Seconds to wait after host detected for Docker
 CONTAINER_NAME="ugv_ros"
 LOG_FILE="$HOME/.ugv_monitor.log"
+UGV_TUI_MODE="${UGV_TUI_MODE:-local}"  # 'local' (Ink) or 'remote' (Python/SSH)
+ROSBRIDGE_PORT=9090
+
+# Path to the TUI directory (relative to this script)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TUI_DIR="$(dirname "$SCRIPT_DIR")/tui"
 
 # State tracking
 STATE_FILE="$HOME/.ugv_monitor_state"
@@ -45,17 +55,35 @@ check_container_ready() {
         &>/dev/null
 }
 
-open_tui_terminal() {
-    log "Opening TUI in new Terminal window"
+check_rosbridge_ready() {
+    # Check if rosbridge WebSocket is accessible
+    nc -zw2 "$UGV_HOST" "$ROSBRIDGE_PORT" &>/dev/null
+}
 
-    # AppleScript to open Terminal with SSH command
-    osascript <<EOF
+open_tui_terminal() {
+    log "Opening TUI in new Terminal window (mode: $UGV_TUI_MODE)"
+
+    if [[ "$UGV_TUI_MODE" == "local" ]]; then
+        # Local Bun+Ink TUI - connects via rosbridge WebSocket
+        local ROSBRIDGE_URL="ws://${UGV_HOST}:${ROSBRIDGE_PORT}"
+
+        osascript <<EOF
+tell application "Terminal"
+    activate
+    set newTab to do script "cd '${TUI_DIR}' && echo 'Starting UGV Rover PT TUI...' && ./scripts/run.sh '${ROSBRIDGE_URL}'"
+    set custom title of front window to "UGV Rover PT TUI"
+end tell
+EOF
+    else
+        # Remote Python TUI - connects via SSH
+        osascript <<EOF
 tell application "Terminal"
     activate
     set newTab to do script "echo 'Connecting to UGV Rover PT...' && ssh -t ${UGV_USER}@${UGV_HOST} 'docker exec -it ${CONTAINER_NAME} bash -c \"source /work/ros2_ws/install/setup.bash && python3 /work/scripts/status_tui.py\"'"
     set custom title of front window to "UGV Rover PT Status"
 end tell
 EOF
+    fi
 }
 
 notify_user() {
@@ -65,7 +93,7 @@ notify_user() {
 }
 
 main_loop() {
-    log "UGV Monitor started - watching for $UGV_HOST"
+    log "UGV Monitor started - watching for $UGV_HOST (TUI mode: $UGV_TUI_MODE)"
 
     while true; do
         if check_host_online; then
@@ -90,7 +118,21 @@ main_loop() {
                 done
 
                 if check_container_ready; then
-                    log "Container ready - opening TUI"
+                    # For local mode, also wait for rosbridge
+                    if [[ "$UGV_TUI_MODE" == "local" ]]; then
+                        log "Container ready - waiting for rosbridge..."
+                        ROSBRIDGE_WAIT=0
+                        while ! check_rosbridge_ready; do
+                            if [[ $ROSBRIDGE_WAIT -ge 30 ]]; then
+                                log "Timeout waiting for rosbridge - proceeding anyway"
+                                break
+                            fi
+                            sleep 2
+                            ROSBRIDGE_WAIT=$((ROSBRIDGE_WAIT + 2))
+                        done
+                    fi
+
+                    log "Ready - opening TUI"
                     notify_user "UGV Rover PT" "Connected! Opening status monitor..."
                     open_tui_terminal
                     LAST_STATE="online"
