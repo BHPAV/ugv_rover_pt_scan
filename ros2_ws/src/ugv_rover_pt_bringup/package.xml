@@ -11,7 +11,7 @@
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>v4l2_camera</exec_depend>
-  <exec_depend>ugv_rover_pt_gimbal_serial</exec_depend>
+  <exec_depend>ugv_base</exec_depend>
   <exec_depend>ugv_rover_pt_scan_mission</exec_depend>
 
   <export>

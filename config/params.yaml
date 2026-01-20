@@ -12,7 +12,7 @@ camera:
     time_per_frame: [1, 30]  # 30 FPS
     output_encoding: "rgb8"
 
-# Gimbal serial node
+# Gimbal serial node (legacy - now handled by ugv_base_bridge)
 gimbal_serial:
   ros__parameters:
     port: "/dev/ttyTHS1"
@@ -27,3 +27,45 @@ scan_mission:
     nas_host: "192.168.1.20"
     nas_user: "boxhead"
     nas_dest_dir: "/share/boxhead/ugv_rover_pt/missions/"
+
+# UGV Base bridge (UART owner for ESP32)
+ugv_base_bridge:
+  ros__parameters:
+    serial:
+      device: "/dev/ttyTHS1"
+      baud: 115200
+      read_timeout_ms: 50
+      write_timeout_ms: 50
+      reconnect_interval_ms: 1000
+
+    uart_echo_mode:
+      enabled: false
+
+    heartbeat:
+      timeout_ms: 1000
+
+    feedback_flow:
+      enabled: true
+      interval_ms: 100
+      request_once_on_startup: false
+
+    ros_ctrl:
+      topic: "/cmd_vel"
+      send_rate_hz: 20.0
+      cmd_timeout_ms: 300
+      send_zero_on_timeout: true
+      clamp_x: 1.0
+      clamp_z: 5.0
+      scale_x: 1.0
+      scale_z: 1.0
+
+    gimbal:
+      topic: "/gimbal/setpoint"
+      default_spd: 200
+      default_acc: 10
+      clamp_yaw_deg: 180.0
+      clamp_pitch_min_deg: -30.0
+      clamp_pitch_max_deg: 90.0
+
+    health:
+      max_feedback_age_ms: 500

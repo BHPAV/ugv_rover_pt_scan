@@ -31,9 +31,9 @@ def generate_launch_description():
         ),
 
         Node(
-            package="ugv_rover_pt_gimbal_serial",
-            executable="gimbal_node",
-            name="gimbal_serial",
+            package="ugv_base",
+            executable="bridge_node",
+            name="ugv_base_bridge",
             parameters=[params_file],
             output="screen",
         ),
