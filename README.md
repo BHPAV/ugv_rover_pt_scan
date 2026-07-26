@@ -8,6 +8,16 @@ Autonomous surveillance rover system for Waveshare UGV Rover PT on Jetson Orin. 
 4. Offloads mission bundle to NAS over Tailscale via `rsync+ssh`
 5. Returns to IDLE
 
+## Box-Net role
+
+| | |
+|---|---|
+| **Role** | UGV |
+| **Canon remote** | https://github.com/BHPAV/ugv_rover_pt_scan.git |
+| **Local path** | — |
+| **Standards** | https://github.com/BHPAV/box-net-standards |
+| **Do not confuse with** | — |
+
 ## Architecture
 
 ```
